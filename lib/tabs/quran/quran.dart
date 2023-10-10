@@ -138,7 +138,7 @@ class QuranScreen extends StatelessWidget {
               },
               itemCount: suraName.length,
               itemBuilder: (_, index) {
-                return QuranSuraItem(suraName[index]);
+                return QuranSuraItem(index, suraName[index]);
               }),
         ),
       ],

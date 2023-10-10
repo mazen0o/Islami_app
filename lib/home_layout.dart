@@ -31,7 +31,6 @@ class _HomeLayoutState extends State<HomeLayout> {
           fit: BoxFit.fill,
         ),
         Scaffold(
-          backgroundColor: Colors.transparent,
           appBar: AppBar(
             title: Text(
               "Islami",

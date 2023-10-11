@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/tabs/hadeth/hadeth.dart';
 import 'package:islami_app/tabs/quran/quran.dart';
 import 'package:islami_app/tabs/radio.dart';
 import 'package:islami_app/tabs/sebha.dart';
+import 'package:islami_app/tabs/settings/settings_screen.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = "home_layout";
@@ -18,6 +20,7 @@ class _HomeLayoutState extends State<HomeLayout> {
     RadioScreen(),
     SebhaScreen(),
     HadethScreen(),
+    SettingsScreen()
   ];
 
   @override
@@ -33,7 +36,7 @@ class _HomeLayoutState extends State<HomeLayout> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              "Islami",
+              "${AppLocalizations.of(context)!.islami}",
               style: Theme.of(context).textTheme.displaySmall,
             ),
           ),
@@ -49,16 +52,19 @@ class _HomeLayoutState extends State<HomeLayout> {
               items: [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/quran.png")),
-                    label: "Quran"),
+                    label: AppLocalizations.of(context)!.quran),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/radio.png")),
-                    label: "Radio"),
+                    label: AppLocalizations.of(context)!.radio),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/sebha.png")),
-                    label: "Tasbeh"),
+                    label: AppLocalizations.of(context)!.sebha),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage("assets/images/ahadeth.png")),
-                    label: "ahadeth"),
+                    label: AppLocalizations.of(context)!.hadeth),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.settings),
+                    label: AppLocalizations.of(context)!.settings),
               ],
             ),
           ),

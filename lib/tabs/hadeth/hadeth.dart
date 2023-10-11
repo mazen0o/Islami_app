@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/my_theme_data.dart';
 import 'package:islami_app/tabs/hadeth/hadeth_item.dart';
 
@@ -31,7 +32,7 @@ class _HadethScreenState extends State<HadethScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: Text(
-              "الاحاديث",
+              AppLocalizations.of(context)!.elahadeth,
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
                     fontSize: 25,
                   ),

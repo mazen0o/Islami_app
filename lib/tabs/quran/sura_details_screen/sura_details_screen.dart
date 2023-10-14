@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/my_theme_data.dart';
 import 'package:islami_app/tabs/quran/sura_details_screen/sura_details_item.dart';
+import 'package:provider/provider.dart';
+
+import '../../../provider/my_provider.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
   static const String routeName = "sura_Details_screen";
@@ -15,6 +18,8 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
+
     var args = ModalRoute.of(context)!.settings.arguments as SuraDetailsModel;
     if (verses.isEmpty) {
       readFile(args.index);
@@ -22,7 +27,7 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
     return Stack(
       children: [
         Image.asset(
-          "assets/images/back_ground.png",
+          pro.getBackGround(),
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,
@@ -37,7 +42,9 @@ class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
           body: Container(
             padding: EdgeInsets.all(20),
             margin: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: BoxDecoration(
+              color: pro.isDark() ? MyThemeData.primaryColorDark : Colors.white,
+            ),
             child: ListView.separated(
               itemBuilder: (context, index) {
                 return SuraDetailsItem(verses[index], index + 1);

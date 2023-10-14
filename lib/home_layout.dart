@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/provider/my_provider.dart';
 import 'package:islami_app/tabs/hadeth/hadeth.dart';
 import 'package:islami_app/tabs/quran/quran.dart';
 import 'package:islami_app/tabs/radio.dart';
 import 'package:islami_app/tabs/sebha.dart';
 import 'package:islami_app/tabs/settings/settings_screen.dart';
+import 'package:provider/provider.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = "home_layout";
@@ -25,10 +27,12 @@ class _HomeLayoutState extends State<HomeLayout> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
+
     return Stack(
       children: [
         Image.asset(
-          "assets/images/back_ground.png",
+          pro.getBackGround(),
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,

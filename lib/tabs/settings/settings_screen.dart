@@ -75,7 +75,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     width: 2,
                   )),
               child: Text(
-                pro.currentTheme == ThemeMode.light ? "Light" : "Dark",
+                pro.currentTheme == ThemeMode.light
+                    ? AppLocalizations.of(context)!.themeLight
+                    : AppLocalizations.of(context)!.themeDark,
                 style: Theme.of(context).textTheme.displayLarge,
               ),
             ),

@@ -5,11 +5,17 @@ class MyProvider extends ChangeNotifier {
   ThemeMode currentTheme = ThemeMode.light;
 
   void changeLangauge(String langAppCode) {
+    if (langAppCode == langApp) {
+      return;
+    }
     langApp = langAppCode;
     notifyListeners();
   }
 
   void changeTheming(ThemeMode themeMode) {
+    if (themeMode == currentTheme) {
+      return;
+    }
     currentTheme = themeMode;
     notifyListeners();
   }

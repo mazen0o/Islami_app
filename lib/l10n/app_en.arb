@@ -7,5 +7,7 @@
   "settings": "Settings",
   "elahadeth": "Elahadeth",
   "language": "Language",
-  "themeing": "Themeing"
+  "themeing": "Themeing",
+  "themeLight": "Light",
+  "themeDark": "dark"
 }

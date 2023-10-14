@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/my_theme_data.dart';
 import 'package:islami_app/provider/my_provider.dart';
 import 'package:provider/provider.dart';
@@ -23,8 +24,8 @@ class _BottomSheetAppDArkState extends State<BottomSheetAppDArk> {
                 pro.changeTheming(ThemeMode.light);
                 Navigator.pop(context);
               },
-              child: checkSelected(
-                  "Light", pro.currentTheme == ThemeMode.light ? true : false)),
+              child: checkSelected(AppLocalizations.of(context)!.themeLight,
+                  pro.currentTheme == ThemeMode.light ? true : false)),
           SizedBox(
             height: 20,
           ),
@@ -33,8 +34,8 @@ class _BottomSheetAppDArkState extends State<BottomSheetAppDArk> {
                 pro.changeTheming(ThemeMode.dark);
                 Navigator.pop(context);
               },
-              child: checkSelected(
-                  "Dark", pro.currentTheme == ThemeMode.dark ? true : false)),
+              child: checkSelected(AppLocalizations.of(context)!.themeDark,
+                  pro.currentTheme == ThemeMode.dark ? true : false)),
         ],
       ),
     );

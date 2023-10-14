@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/my_theme_data.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/my_provider.dart';
 
 class SebhaScreen extends StatefulWidget {
   @override
@@ -17,6 +21,8 @@ class _SebhaScreenState extends State<SebhaScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
+
     Size size = MediaQuery.of(context).size;
 
     return Container(
@@ -32,6 +38,9 @@ class _SebhaScreenState extends State<SebhaScreen> {
                   left: size.width * .45,
                   child: Image.asset(
                     "assets/images/head of seb7a.png",
+                    color: pro.isDark()
+                        ? MyThemeData.yellowColor
+                        : MyThemeData.primaryColor,
                   ),
                 ),
                 Positioned(
@@ -46,6 +55,9 @@ class _SebhaScreenState extends State<SebhaScreen> {
                       angle: angle,
                       child: Image.asset(
                         "assets/images/body of seb7a.png",
+                        color: pro.isDark()
+                            ? MyThemeData.yellowColor
+                            : MyThemeData.primaryColor,
                       ),
                     ),
                   ),
@@ -68,7 +80,8 @@ class _SebhaScreenState extends State<SebhaScreen> {
             width: 70,
             height: 80,
             decoration: BoxDecoration(
-                color: Color(0xFFC9B396),
+                color:
+                    pro.isDark() ? MyThemeData.yellowColor : Color(0xFFC9B396),
                 borderRadius: BorderRadius.circular(25)),
             child: Text(
               "$counter",

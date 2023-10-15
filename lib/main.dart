@@ -7,6 +7,7 @@ import 'package:islami_app/provider/my_provider.dart';
 import 'package:islami_app/tabs/hadeth/hadeth_details_screen.dart';
 import 'package:islami_app/tabs/quran/sura_details_screen/sura_details_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -17,9 +18,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  late MyProvider provider;
+
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<MyProvider>(context);
+    provider = Provider.of<MyProvider>(context);
+    sharedPrefs();
 
     return MaterialApp(
       localizationsDelegates: [
@@ -44,5 +48,16 @@ class MyApp extends StatelessWidget {
       darkTheme: MyThemeData.darkTheme,
       themeMode: provider.currentTheme,
     );
+  }
+
+  sharedPrefs() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String lang = prefs.getString("lang") ?? "en";
+    provider.changeLangauge(lang);
+    if (prefs.getString("theme") == "light") {
+      provider.changeTheming(ThemeMode.light);
+    } else if (prefs.getString("theme") == "dark") {
+      provider.changeTheming(ThemeMode.dark);
+    }
   }
 }

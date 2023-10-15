@@ -49,12 +49,12 @@ class _BottomSheetAppDArkState extends State<BottomSheetAppDArk> {
           Text(
             "$text",
             style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                  color: Theme.of(context).primaryColorDark,
+                  color: Theme.of(context).primaryColor,
                 ),
           ),
           Icon(
             Icons.check,
-            color: MyThemeData.primaryColorDark,
+            color: MyThemeData.primaryColor,
           ),
         ],
       );
